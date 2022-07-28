@@ -1,0 +1,122 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+h1  {
+    position: absolute;
+    text-decoration-line: underline;
+}
+
+
+#header {
+    display: flex;
+    background-color: rgb(50, 167, 145);
+    justify-content: center;
+    color: aliceblue;
+    height: 12vh;
+    align-items: center;
+}
+
+#main {
+    display: flex;
+    justify-content: center;
+    background-color: black;
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 100vw;
+    height: 100vh;
+}
+
+div {
+    display: flex;
+    margin: 2%;
+    flex-direction: column;
+    align-items: center;
+    width: 80vh;
+    text-align: center;
+}
+
+.games {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1%;
+}
+
+.game-name {
+    margin-bottom: 3vh;
+    height: 4vh;
+    width: 32vh;
+}
+
+.add-game {
+    height: 6vh;
+    width: 15vh;
+    background-color: crimson;
+    color: aliceblue;
+}
+
+.add-game:disabled {
+    color: gray;
+    background-color: darkred;
+}
+
+h2 {
+    flex-wrap: wrap;
+    color: aliceblue;
+    margin-bottom: 3vh;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    letter-spacing: 0.3vh;
+}
+
+.game {
+    vertical-align: baseline;
+    margin-bottom: 1vh;
+    color: aliceblue;
+    list-style: none;
+}
+
+.lucky-button {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: medium;
+    color: aliceblue;
+    background-color: green;
+    border: 0px;
+    height: 10vh;
+    width: 30vh;
+}
+
+.lucky-button:disabled {
+    color: gray;
+    background-color: darkgreen;
+}
+
+.lucky-game {
+    font-size: xx-large;
+    text-transform: uppercase;
+    color: aliceblue;
+}
+
+img {
+    height: 50vh;
+    width: 70vh;
+    color: brown;
+}
+
+.loading {
+    margin-top: 70px;
+    margin-left: px;
+    animation: is-rotating 1s infinite;
+    margin: 100px;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 6px solid white;
+    border-top-color: green;
+}
+
+@keyframes is-rotating {
+    to {
+        transform: rotate(1turn);
+    }
+}
