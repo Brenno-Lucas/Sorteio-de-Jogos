@@ -7,20 +7,21 @@ const pranksPhrases = ['Can play this', 'I allow !', 'Try to play !',
 'Go there ! "Have a good time"','Do you really know how to play this?',
 'I would have fun watching you lose', 'I doubt it!', 'You can !?'];
 const images = {
-    leagueoflegends: './img/lol.png',
-    trine3: './img/trine.jpg',
-    civilization6: './img/civilization.jpg',
-    ageofempiresii: './img/ageofempiresII.jpg',
-    ageofempiresiv: './img/ageofempiresIV.jpg',
-    fallguys: './img/fallguys.jpg',
-    heroesofstorm: './img/heroesofstorm.jpeg',
-    rainbowsixsiege: './img/rainbowSixSiege.jpg',
-    forzahorizon5: './img/forza5.jpg',
-    haloinfinite: './img/haloinfinite.jpg',
-    fortnite: './img/fortnite.jpg',
-    csgo: './img/csgo.jpg',
-    valorant: './img/valorant.jpg'
+    './img/lol.png': ['lol', 'leagueoflegends'],
+    './img/trine.jpg': ['trine3'],
+    './img/civilization.jpg': ['civilization6', 'civi6'],
+    './img/ageofempiresII.jpg': ['ageofempiresii', 'ageii'],
+    './img/ageofempiresIV.jpg': ['ageofempiresiv', 'ageiv'],
+    './img/fallguys.jpg': ['fallguys'],
+    './img/heroesofstorm.jpeg': ['heroesofstorm'],
+    './img/rainbowSixSiege.jpg': ['r6', 'rainbowsixsiege'],
+    './img/forza5.jpg': ['forza5', 'forzahorizon5'],
+    './img/haloinfinite.jpg': ['haloinfinite'],
+    './img/fortnite.jpg': ['fortnite'],
+    './img/csgo.jpg': ['cs', 'csgo'],
+    './img/valorant.jpg': ['vava', 'valorant']
 }
+const arrayOfImages = Object.values(images);
 
 const removeElement = (elementClass, tagName, lengthSize, position) => {
     const parentElement = document.getElementById(elementClass);
@@ -45,13 +46,25 @@ const addLuckyGameToScreen = () => {
     }, 1000)
 } // adiciona a string referente ao game sorteado.
 
+const getKey = (param2) => {
+    const getValue = arrayOfImages.find((item) => item.find((item2) => item2 === param2));
+    let gameImg;
+    for (key in images) {
+      if (images[key] == getValue) {
+        gameImg = key;
+      }
+    }
+    return gameImg
+}
+
 const luckyGameImg = () => {
     removeElement('sweepstakes-winner', 'img', 1, 0)
     createElement('img', 'game-image', 'sweepstakes-winner')
     const imgElement = document.querySelector('.game-image');
     let gameName = document.querySelector(".lucky-game").innerHTML.toLowerCase().replaceAll(' ', '');
-    if (Object.hasOwnProperty.call(images, gameName)) {
-        imgElement.setAttribute('src', images[gameName])
+    const getValue = arrayOfImages.find((item) => item.find((item2) => item2 === gameName))
+    if (getValue !== undefined) {
+        imgElement.setAttribute('src', getKey(gameName))
         removeElement('sweepstakes-winner', 'p', 2, 0)
         document.querySelector(".lucky-game").innerText = drawGames(pranksPhrases);
     } else {
@@ -79,6 +92,9 @@ function removeLiElement(event) {
     removedGame.push(getClickedElement.textContent)
     const gameListAfterRemoval = gamesList.filter((item) => !removedGame.includes(item));
     gamesList = gameListAfterRemoval;
+    if (document.querySelectorAll('.game').length === 0) {
+        document.querySelector('.lucky-button').disabled = true;
+    }
 } // remove elemento e a string da gameList quando clicado.
 
 const getGameElements = () => {
@@ -121,3 +137,4 @@ const loading = () => {
 events(luckyButton, 'click', addLuckyGameToScreen);
 events(addGameButton,'click', addGameElement);
 events(inputGameName, 'keyup', buttonUnable)
+
