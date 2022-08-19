@@ -1,41 +1,12 @@
+import { listGames, pranksPhrases } from './gamesList.js';
+import { getImage } from './getImage.js';
+
 const addGameButton = document.querySelectorAll('.add-game');
 const luckyButton = document.querySelectorAll('.lucky-button');
 let gamesList = [];
 const removedGame = [];
 const inputGameName = document.querySelectorAll('.game-name');
-const pranksPhrases = ['Can play this', 'I allow !', 'Try to play !',
-  'Go there ! "Have a good time"', 'Do you really know how to play this?',
-  'I would have fun watching you lose', 'I doubt it!', 'You can !?'];
-const listGameNames = {
-  AgeOfEmpiresII: ['ageofempiresii', 'ageii'],
-  AgeOfEmpiresIV: ['ageofempiresiv', 'ageiv'],
-  Civilization6: ['civilization6', 'civi6'],
-  CounterStrikeGO: ['cs', 'csgo', 'conterstrikego'],
-  FallGuys: ['fallguys'],
-  ForzaHorizon5: ['forza5', 'forzahorizon5'],
-  Fortnite: ['fortnite'],
-  HaloInfinite: ['haloinfinite'],
-  HeroesOfStorm: ['heroesofstorm'],
-  LeagueOfLegends: ['lol', 'leagueoflegends'],
-  RainbowSixSiege: ['r6', 'rainbowsixsiege'],
-  Valorant: ['vava', 'valorant'],
-  Trine3: ['trine3'],
-};
-const gamesImg = {
-  AgeOfEmpiresII: './img/ageofempiresII.jpg',
-  AgeOfEmpiresIV: './img/ageofempiresIV.jpg',
-  Civilization6: './img/civilization.jpg',
-  CounterStrikeGO: './img/csgo.jpg',
-  FallGuys: './img/fallguys.jpg',
-  ForzaHorizon5: './img/forza5.jpg',
-  Fortnite: './img/fortnite.jpg',
-  HaloInfinite: './img/haloinfinite.jpg',
-  HeroesOfStorm: './img/heroesofstorm.jpeg',
-  LeagueOfLegends: './img/lol.png',
-  RainbowSixSiege: './img/rainbowSixSiege.jpg',
-  Valorant: './img/valorant.jpg',
-  Trine3: './img/trine.jpg',
-};
+
 const removeElement = (elementClass, tagName, lengthSize, position) => {
   const parentElement = document.getElementById(elementClass);
   if (parentElement.getElementsByTagName(tagName).length === lengthSize) {
@@ -60,32 +31,13 @@ const addLuckyGameToScreen = () => {
   }, 1000);
 }; // Adiciona a string referente ao game sorteado.
 
-const getGameName = (obj, game) => {
-  const arrayOfNames = Object.values(obj);
-  const getValue = arrayOfNames.find((item) => item.find((item2) => item2 === game));
-  let gameName;
-  for (key in obj) {
-    if (obj[key] === getValue) {
-      gameName = key;
-    }
-  }
-  return gameName;
-}; // Filtra o nome do jogo a partir dos valores de um objeto.
-
-const getGameImage = (obj, gameName) => {
-  const entries = Object.keys(obj);
-  const gameValue = entries.find((item) => item === gameName);
-  const gameImage = obj[gameValue];
-  return gameImage;
-}; // Resgata a imagem a partir do nome do jogo.
-
 const luckyGameImg = () => {
   removeElement('sweepstakes-winner', 'img', 1, 0);
   createElement('img', 'game-image', 'sweepstakes-winner');
   const imgElement = document.querySelector('.game-image');
   const gameName = document.querySelector('.lucky-game').innerHTML.toLowerCase().replaceAll(' ', '');
-  const gameImage = getGameImage(gamesImg, getGameName(listGameNames, gameName));
-  if (gameImage !== undefined) {
+  const gameImage = getImage(listGames, gameName);
+  if (gameImage !== false) {
     imgElement.setAttribute('src', gameImage);
     removeElement('sweepstakes-winner', 'p', 2, 0);
     document.querySelector('.lucky-game').innerText = drawGames(pranksPhrases);

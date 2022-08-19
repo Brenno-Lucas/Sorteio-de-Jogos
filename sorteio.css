@@ -49,6 +49,13 @@ div {
     width: 32vh;
 }
 
+#searchTab{
+    position: absolute;
+    width: 32vh;
+    height: 32vh;
+    background-color: azure;
+}
+
 .add-game {
     height: 6vh;
     width: 15vh;
