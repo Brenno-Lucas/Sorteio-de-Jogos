@@ -38,25 +38,58 @@ div {
 }
 
 .games {
+    cursor: pointer;
     display: flex;
     flex-direction: column;
     margin-bottom: 1%;
 }
 
+
 .game-name {
+    position: relative;
     margin-bottom: 3vh;
+    margin-right: 10px;
     height: 4vh;
     width: 32vh;
 }
 
+#section-addgame {
+    display: flex;
+}
+
 #searchTab{
-    position: absolute;
-    width: 32vh;
-    height: 32vh;
+    cursor: pointer;
     background-color: azure;
+    border: 2px solid green;
+    border-top: 0px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    margin-top: 34px;
+    overflow-y: scroll;
+    position:absolute;
+    width: 32.1vh;
+    max-height: 30vh;
+}
+
+#listed-games {
+    cursor: pointer;
+    position:absolute;
+    background-color: blue;
+    height: 2vh;
+    width: 2vh;
+}
+
+#researchedGame {
+    font-size: large;
+    margin-bottom: 3px;
+}
+
+#researchedGame:hover {
+    background-color: lightslategrey;
 }
 
 .add-game {
+    cursor: pointer;
     height: 6vh;
     width: 15vh;
     background-color: crimson;
@@ -84,6 +117,7 @@ h2 {
 }
 
 .lucky-button {
+    cursor: pointer;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-size: medium;
     color: aliceblue;

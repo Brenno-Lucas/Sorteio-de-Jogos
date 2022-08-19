@@ -16,7 +16,8 @@
             <h2>ME DIGA OS JOGOS</h2>
             <container class="games" id="games">
                 <section id="section-addgame">
-                    <input type="text" class="game-name" id="game-name" placeholder="Ex. League of Legends">
+                    <input type="text" class="game-name" id="game-name" placeholder="Ex. League of Legends" onkeyup= whenType(event)>
+                    <button id="listed-games"></button>
                     <button class="add-game" disabled>
                         Adicione
                     </button>
@@ -28,6 +29,6 @@
     </main>
     <footer id="footer">
     </footer>
-    <script src="./src/sorteio.js" type="module"></script>
+    <script src="sorteio.js" type="module"></script>
 </body>
 </html>

@@ -11,21 +11,21 @@ const listGames = [
   },
   {
     name: 'Civilization 6',
-    search: ['civi6, civilization6'],
+    search: ['civi6', 'civilization6'],
     image: './img/civilization.jpg',
   },
   {
-    name: 'CounterStrikeGO',
-    search: ['cs', 'csgo', 'conterstrikego'],
+    name: 'Counter Strike GO',
+    search: ['cs', 'csgo', 'counterstrikego'],
     image: './img/csgo.jpg',
   },
   {
-    name: 'FallGuys',
+    name: 'Fall Guys',
     search: ['fallguys'],
     image: './img/fallguys.jpg',
   },
   {
-    name: 'ForzaHorizon5',
+    name: 'Forza Horizon 5',
     search: ['forza5', 'forzahorizon5'],
     image: './img/forza5.jpg',
   },
@@ -35,22 +35,22 @@ const listGames = [
     image: './img/fortnite.jpg',
   },
   {
-    name: 'HaloInfinite',
+    name: 'Halo Infinite',
     search: ['haloinfinite'],
     image: './img/haloinfinite.jpg',
   },
   {
-    name: 'HeroesOfStorm',
+    name: 'Heroes of Storm',
     search: ['heroesofstorm'],
     image: './img/heroesofstorm.jpeg',
   },
   {
-    name: 'LeagueOfLegends',
+    name: 'League of Legends',
     search: ['lol', 'leagueoflegends'],
     image: './img/lol.png',
   },
   {
-    name: 'RainbowSixSiege',
+    name: 'Rainbow Six Siege',
     search: ['r6', 'rainbowsixsiege'],
     image: './img/rainbowSixSiege.jpg',
   },
@@ -60,7 +60,7 @@ const listGames = [
     image: './img/valorant.jpg',
   },
   {
-    name: 'Trine3',
+    name: 'Trine 3',
     search: ['trine3'],
     image: './img/trine.jpg',
   },
