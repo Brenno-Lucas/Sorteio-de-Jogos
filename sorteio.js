@@ -1,6 +1,6 @@
 import { listGames, pranksPhrases } from './src/gamesList.js';
 import getImage from './src/getImage.js';
-import { whenType, test } from './src/autocomplete.js';
+import { whenType, buttonListGame } from './src/autoComplete.js';
 
 const addGameButton = document.querySelectorAll('.add-game');
 const luckyButton = document.querySelectorAll('.lucky-button');
@@ -8,6 +8,7 @@ let gamesList = [];
 const removedGame = [];
 const inputGameName = document.querySelectorAll('.game-name');
 const listedGames = document.querySelectorAll('#listed-games');
+const body = document.getElementsByTagName('body');
 
 const removeElement = (elementClass, tagName, lengthSize, position) => {
   const parentElement = document.getElementById(elementClass);
@@ -117,6 +118,6 @@ window.whenType = whenType;
 events(luckyButton, 'click', addLuckyGameToScreen);
 events(addGameButton, 'click', addGameElement);
 events(inputGameName, 'keyup', buttonUnable);
-events(listedGames, 'click', test);
+events([...body], 'click', buttonListGame);
 
-export { events, createElement };
+export { events, createElement, buttonUnable };

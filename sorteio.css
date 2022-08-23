@@ -44,11 +44,21 @@ div {
     margin-bottom: 1%;
 }
 
+#search-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: azure;
+    width: 30vh;
+    height: 4vh;
+    margin-right: 2vh;
+    margin-top: 0.8vh;
+}
 
 .game-name {
-    position: relative;
-    margin-bottom: 3vh;
     margin-right: 10px;
+    border: 0;
+    outline: 0;
     height: 4vh;
     width: 32vh;
 }
@@ -57,31 +67,46 @@ div {
     display: flex;
 }
 
-#searchTab{
+#searchTab {
     cursor: pointer;
     background-color: azure;
-    border: 2px solid green;
     border-top: 0px;
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
     margin-top: 34px;
     overflow-y: scroll;
     position:absolute;
-    width: 32.1vh;
-    max-height: 30vh;
+    width: 30vh;
+    max-height: 26vh;
+    min-height: 26vh;
+}
+
+::-webkit-scrollbar {
+    width: 12px;
+}
+ 
+::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background-color: lightslategrey;
 }
 
 #listed-games {
     cursor: pointer;
-    position:absolute;
-    background-color: blue;
-    height: 2vh;
-    width: 2vh;
+    margin-top: -5vh;
+    background-color: transparent;
+    padding: 1vh; /* Arrow size */
+    -webkit-box-shadow: -2px 2px gray inset;
+    border: solid transparent;
+    border-width: 0 0 2rem 2rem;
+    transition: 0.2s;
 }
+
+#listed-games { transform:rotate(135deg) }
 
 #researchedGame {
     font-size: large;
-    margin-bottom: 3px;
+    margin-top: 1vh;
+    margin-bottom: 1vh;
 }
 
 #researchedGame:hover {
